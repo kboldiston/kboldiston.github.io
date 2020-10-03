@@ -7,4 +7,5 @@ categories: jekyll update
 And here's hoping im not too lazy to add things to it.
 
 For now, here's a cat.
+
 ![confused cat](/assets/images/cat.jpg)
