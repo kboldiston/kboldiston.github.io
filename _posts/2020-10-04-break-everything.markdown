@@ -2,7 +2,8 @@
 layout: post
 title:  "Break Everything"
 date:   "2020-10-04 01:55:26"
-categories: jekyll update
+categories: code csharp testing programming developer developing software
+published: false
 ---
 
 Breaking things is fun, even sometimes in programming. The real pain comes when the problem is hidden under webs of complex code.
