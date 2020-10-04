@@ -1,5 +1,5 @@
 ---
-title:  "Feedback during development"
+title:  "Test your code"
 date:   "2020-10-04 01:55:26"
 categories: code
 published: true
@@ -14,11 +14,14 @@ Boom, it won't compile.
 
 >It's broken, I don't know what's wrong! That code "should" work!!
 
-I hear this way too many times.
+The compiler is rarely wrong.
 
 One of the harder things for a new dev to learn is how to avoid this. How to break the code into managable chunks, 
-make it testable and run it often. The best practices in software development are always around feedback, find bugs earlier, 
-find out what the client *actually* wants as soon as possible. Do the same with your code even before it leaves your hands.
+make it testable and run it often. 
+
+The best practices in software development are always around feedback, find bugs earlier, 
+find out what the client *actually* wants as soon as possible. Doing this helps you prove that the the could at least at its
+individual parts, should run.
 
 Take this code for example
 
@@ -37,9 +40,13 @@ static void Main()
 {% endhighlight %}
 
 In the above code we have a method that does multiple things and offers no real way to 
-test individual components of the and parts of this code cannot easily be reused elsewhere.
+test individual components and parts of this code cannot easily be reused elsewhere.
 
-If instead we break down the components into reusable parts they become much easier to test.
+It does too much.
+
+If instead we break down the components into reusable methods, that have clear purposes they become much easier to test.
+Also much clearer to the next developer.
+
 {% highlight csharp %}
 static void Main()
 {
@@ -68,3 +75,10 @@ public void TestDrive()
     Assert.Equals(10, testCar.YPosition);
 }
 {% endhighlight %}
+
+When writing software its important not to think of our madly scribbled down code as a finished product. 
+Much like in school we would review drafts of our essays before finally turning them in.
+
+Do the same with code. Once the process and logic is discovered, go back and think about what could be simplified and 
+where it could add value. Its always easier to borrow those few extra moments before anything goes to production. 
+Once its deployed its so much harder to justify the changes.
