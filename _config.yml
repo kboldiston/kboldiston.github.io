@@ -28,10 +28,52 @@ url: "kboldiston.github.io" # the base hostname & protocol for your site, e.g. h
 github_username:  kboldiston
 
 # Build settings
-theme: minima
+# theme: minima
+remote_theme: mmistakes/minimal-mistakes@4.20.2
+minimal_mistakes_skin: "dark"
 show_excerpts: true
+
 plugins:
+  - jekyll-include-cache
   - jekyll-feed
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: tr
+
+include: ["_pages"]
+
+author:
+  name     : "Kyle Boldiston"
+  avatar   : "https://avatars0.githubusercontent.com/u/18719833?s=460&u=2a29a77c9b1d3e77ac8b8cab06ea498088d3d23e&v=4"
+  bio      : "Full stack dev, makes things, breaks things and flies drones in what spare time is left."
+  location : "VIC, Australia"
+
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/kboldiston"
+  description: "Test"
+  
+
+  
 
 # Exclude from processing.
 # The following items will not be processed, by default.

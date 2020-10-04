@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Break Everything"
 date:   "2020-10-04 01:55:26"
 categories: code csharp testing programming developer developing software
@@ -24,7 +23,7 @@ find out what the client *actually* wants as soon as possible. Do the same with 
 Take this code for example
 
 {% highlight csharp %}
-public static void DoesTooManyThings() 
+public static void Main() 
 {
     // TODO: write code that does too many things
 }
