@@ -20,8 +20,8 @@ One of the harder things for a new dev to learn is how to avoid this. How to bre
 make it testable and run it often. 
 
 The best practices in software development are always around feedback, find bugs earlier, 
-find out what the client *actually* wants as soon as possible. Doing this helps you prove that the the could at least at its
-individual parts, should run.
+find out what the client *actually* wants as soon as possible. Doing this helps you prove that the code should at least at its
+individual parts, run.
 
 Take this code for example
 
