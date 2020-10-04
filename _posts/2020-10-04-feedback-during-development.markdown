@@ -1,8 +1,8 @@
 ---
-title:  "Break Everything"
+title:  "Feedback during development"
 date:   "2020-10-04 01:55:26"
-categories: code csharp testing programming developer developing software
-published: false
+categories: code
+published: true
 ---
 
 Breaking things is fun, even sometimes in programming. The real pain comes when the problem is hidden under webs of complex code.
@@ -23,20 +23,48 @@ find out what the client *actually* wants as soon as possible. Do the same with 
 Take this code for example
 
 {% highlight csharp %}
-public static void Main() 
+static void Main() 
 {
-    // TODO: write code that does too many things
+    bool engineOn = true;
+    int gas = 15;
+    
+    double speed = 10;
+    int x = 5;
+    int y = 20;
+
+    Console.WriteLine("My top speed is {0}", speed);
 }
 {% endhighlight %}
 
-In the above code...
+In the above code we have a method that does multiple things and offers no real way to 
+test individual components of the and parts of this code cannot easily be reused elsewhere.
 
+If instead we break down the components into reusable parts they become much easier to test.
+{% highlight csharp %}
+static void Main()
+{
+    Vehicle car = new Vehicle();
+
+    car.StartEngine();
+
+    car.Speed(10);
+    car.Drive(5, 20);
+
+    car.DisplaySpeed();
+}
+{% endhighlight %}
+
+In the above example the broken down code now becomes much clearer to read and easier to test. As can bee seen below
 
 {% highlight csharp %}
-public void DoesOneThing() 
+[TestMethod]
+public void TestDrive()
 {
-    // TODO: write code that does one thing 
+    Vehicle testCar = new Vehicle();
+
+    testCar.Drive(1, 10);
+
+    Assert.Equals(1, testCar.XPosition);
+    Assert.Equals(10, testCar.YPosition);
 }
 {% endhighlight %}
-
-However when...
