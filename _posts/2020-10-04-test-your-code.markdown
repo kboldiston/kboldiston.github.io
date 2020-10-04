@@ -22,8 +22,8 @@ and get it running as often as possible.
 The best practices in software development are always around faster feedback. From finding bugs earlier to
 finding out what the client *actually* wants by getting their input well before the end of a project. 
 
-You can apply this concept during development through unit tests, but to see the best value you need to consider 
-how your code could be tested as you go along writing it.
+You can apply this concept during development through unit tests, but to see the best value from your tests,
+you need to consider how your code could be tested as you go along writing it.
 
 Take this code for example:
 
@@ -37,6 +37,9 @@ static void Main()
     int x = 5;
     int y = 20;
 
+    vehicle.xPosition += x;
+    vehicle.yPosition += y;
+
     Console.WriteLine("My top speed is {0}", speed);
 }
 {% endhighlight %}
@@ -48,7 +51,7 @@ hope that it works right.
 This takes too long.
 
 If instead we break down the components into reusable methods, we can make it easier to see if 
-the code we are writing will work without having to wait for the whole feature to be written.
+the code we are writing will work, without having to wait for the whole feature to be written.
 
 {% highlight csharp %}
 static void Main()
@@ -64,10 +67,10 @@ static void Main()
 }
 {% endhighlight %}
 
-In the above example, the broken down code now becomes much clearer to read and easier to test.
+In the above example, the broken-down code now becomes much clearer to read and easier to test.
 
 Each component can be run individually, making feedback faster because now, you can test each component
-as you complete them. These tasks are now a lot smaller and it will be easier to find where that bug lies.
+as you complete them. These tasks are now a lot smaller and it will be easier to find where that bug hides.
 
 {% highlight csharp %}
 [TestMethod]
@@ -82,17 +85,20 @@ public void TestDrive()
 }
 {% endhighlight %}
 
-In the above test, it's much easier to robustly test that single component and
-we don't need to worry about the wider feature yet. 
+In the above test, we can see that it's much easier to robustly test that 
+single component and we don't need to worry about the wider feature yet. 
 
+Thinking this way we can:
 1. Add Drive() method
 2. Prove that Drive() does what it should
 
+There is less [cognitive complexity](https://en.wikipedia.org/wiki/Cognitive_complexity) to worry about and 
+you can be sure that Drive() works before moving on.
+
 When writing software, it's important not to think of our madly scribbled down code as a finished product. 
-Much like in school we would review drafts of our essays before finally turning them in.
+It is a draft to be reviewed and refined to reduce the amount of effort we, or our unfortunate successors, 
+have to expend to understand the logic inside.
 
-Do the same with code. Once the process and logic are discovered, go back and think about what could be simplified and 
-where it could add value. If you're lucky enough to work with others, ask for a code review. 
-
-Its these extra moments spent early on, that early feedback from the compiler or tests that help prevent those
-painful surprises later on.
+This is one of the many reasons why testable code, and unit tests add value. It's more than just a 
+way to test functionality. It allows change to be more rapid and feedback to come back to us 
+faster than it ever could without them.
