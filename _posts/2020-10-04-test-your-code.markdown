@@ -16,14 +16,15 @@ Boom, it won't compile.
 
 The compiler is rarely wrong.
 
-One of the harder things for a new dev to learn is how to avoid this. How to break the code into managable chunks, 
-make it testable and run it often. 
+One of the harder things for a new dev to learn is how to avoid this. How to make code more manageable, make it easier to test 
+and get it running as often as possible.
 
-The best practices in software development are always around feedback, find bugs earlier, 
-find out what the client *actually* wants as soon as possible. Doing this helps you prove that the code should at least at its
-individual parts, run.
+The best practices in software development are always around faster feed feedback. From finding bugs earlier to
+finding out what the client *actually* wants by getting them the minimum viable feature sooner. 
 
-Take this code for example
+You can apply this concept during development through considering how you would go about unit testing your code as you write it.
+
+Take this code for example:
 
 {% highlight csharp %}
 static void Main() 
@@ -40,12 +41,12 @@ static void Main()
 {% endhighlight %}
 
 In the above code we have a method that does multiple things and offers no real way to 
-test individual components and parts of this code cannot easily be reused elsewhere.
+test individual components, and parts of this code cannot easily be reused elsewhere.
 
 It does too much.
 
-If instead we break down the components into reusable methods, that have clear purposes they become much easier to test.
-Also much clearer to the next developer.
+If instead we break down the components into reusable methods, we can make it easier to see if 
+the code we are writing will work while we are still building the larger feature.
 
 {% highlight csharp %}
 static void Main()
@@ -61,7 +62,9 @@ static void Main()
 }
 {% endhighlight %}
 
-In the above example the broken down code now becomes much clearer to read and easier to test. As can bee seen below
+In the above example, the broken down code now becomes much clearer to read and easier to test.
+Each component can be run individually, making feedback faster and easier for you to know where and when something 
+has broken.
 
 {% highlight csharp %}
 [TestMethod]
@@ -76,7 +79,7 @@ public void TestDrive()
 }
 {% endhighlight %}
 
-When writing software its important not to think of our madly scribbled down code as a finished product. 
+When writing software, its important not to think of our madly scribbled down code as a finished product. 
 Much like in school we would review drafts of our essays before finally turning them in.
 
 Do the same with code. Once the process and logic is discovered, go back and think about what could be simplified and 
